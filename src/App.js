@@ -12,7 +12,7 @@ import Modal from "./components/Modal";
 import EmptyCart from "./components/Cart/EmptyCart";
 import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
   return (
     <React.Fragment>
       <Navbar />
@@ -27,6 +27,6 @@ function App() {
       <Footer />
     </React.Fragment>
   );
-}
+};
 
 export default App;

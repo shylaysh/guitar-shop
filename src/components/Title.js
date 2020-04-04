@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 //Note: Here, 'name' and 'title' are props from the '''<Title name="our" title="products" />''' of ProductList.js
 export default function Title({ name, title }) {

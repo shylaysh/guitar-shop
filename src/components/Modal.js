@@ -1,64 +1,61 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./Button";
 import { Link } from "react-router-dom";
 
-class Modal extends Component {
-  state = {};
-  render() {
-    return (
-      <ProductConsumer>
-        {value => {
-          const { modalOpen, closeModal } = value;
-          const { img, title, price } = value.modalProduct;
+const Modal = () => {
+  return (
+    <ProductConsumer>
+      {value => {
+        const { modalOpen, closeModal } = value;
+        const { img, title, price } = value.detailProduct;
 
-          if (!modalOpen) {
-            return null;
-          } else {
-            return (
-              <ModalContainer>
-                <div className="container">
-                  <div className="row">
-                    <div
-                      id="modal"
-                      className="col-8 mx-auto col-md-6 col -lg-4 text-center text-capitalize py-5"
-                    >
-                      <h5>Item added to the cart.</h5>
-                      <img src={img} className="img-fluid" alt="product"></img>
-                      <h5 className="mt-2">{title}</h5>
-                      <h5 className="text-muted">Price: ${price}</h5>
-                      <Link to="/">
-                        <ButtonContainer
-                          onClick={() => {
-                            closeModal();
-                          }}
-                        >
-                          Continue shopping
-                        </ButtonContainer>
-                      </Link>
-                      <Link to="/cart">
-                        <ButtonContainer
-                          cart
-                          onClick={() => {
-                            closeModal();
-                          }}
-                          className="ml-3"
-                        >
-                          Go to cart
-                        </ButtonContainer>
-                      </Link>
-                    </div>
+        if (!modalOpen) {
+          return null;
+        } else {
+          return (
+            <ModalContainer>
+              <div className="container">
+                <div className="row">
+                  <div
+                    id="modal"
+                    className="col-8 mx-auto col-md-6 col -lg-4 text-center text-capitalize py-5"
+                  >
+                    <h5>Item added to the cart.</h5>
+                    <img src={img} className="img-fluid" alt="product"></img>
+                    <h5 className="mt-2">{title}</h5>
+                    <h5 className="text-muted">Price: ${price}</h5>
+                    <Link to="/">
+                      <ButtonContainer
+                        onClick={() => {
+                          closeModal();
+                        }}
+                      >
+                        Continue shopping
+                      </ButtonContainer>
+                    </Link>
+                    <Link to="/cart">
+                      <ButtonContainer
+                        cart
+                        onClick={() => {
+                          closeModal();
+                        }}
+                        className="ml-3"
+                      >
+                        Go to cart
+                      </ButtonContainer>
+                    </Link>
                   </div>
                 </div>
-              </ModalContainer>
-            );
-          }
-        }}
-      </ProductConsumer>
-    );
-  }
-}
+              </div>
+            </ModalContainer>
+          );
+        }
+      }}
+    </ProductConsumer>
+  );
+};
 
 export default Modal;
 
